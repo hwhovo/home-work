@@ -60,4 +60,4 @@ Any new projects should be added to the `src/` folder of the repository.
 ### UI
 There is a UI project bootstrapped using Create React App with the TypeScript template. You are welcome to use this as a starting point, but if you would prefer to use another framework, such as Angular, please feel free to do so.
 
-This application can be started using `npm start` from the root of the `/ui` directory.
+This application can be started using `npm install` and `npm start` from the root of the `/ui` directory.
