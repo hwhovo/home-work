@@ -3,21 +3,13 @@
     public class TodoEntity
     {
         public TodoEntity()
-        {
-
-        }
+        { }
 
         public TodoEntity(string description)
         {
             Description = description;
             ModifiedDate = DateTime.Now;
             IsComplete = false;
-        }
-
-        public TodoEntity(bool isComplete)
-        {
-            ModifiedDate = DateTime.Now;
-            IsComplete = isComplete;
         }
 
         /// <summary>

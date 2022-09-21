@@ -6,4 +6,5 @@ export type TodoItemProps = {
     modifiedDate: Date;
     onEditClick: (id: number, description: string) => void;
     onDeleteClick: (id: number) => void;
+    onStatusChange: (id: number, isComplete: boolean) => void;
 }

@@ -40,4 +40,11 @@
     outline: 0;
     width: 100%;
     text-align: center;
+    color: #282c34;
+    font-style: italic;
+}
+
+.edit-disable {
+    color: silver !important;
+    cursor: default;
 }

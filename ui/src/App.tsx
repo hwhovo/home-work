@@ -1,14 +1,13 @@
-import React from 'react';
 import './App.css';
+import TodoList from './components/todoList';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>
-          Please see the README at the root of the repository.
-        </p>
+        Todo List
       </header>
+        <TodoList />
     </div>
   );
 }

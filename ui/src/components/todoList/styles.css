@@ -1,0 +1,10 @@
+.todo-list-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.todo-list-wrapper {
+    padding: 50px;
+    max-width: 1950px;
+    margin: 0 auto;
+}

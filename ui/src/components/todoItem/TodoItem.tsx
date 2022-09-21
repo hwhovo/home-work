@@ -10,6 +10,7 @@ function TodoItem({
     modifiedDate, 
     onEditClick,
     onDeleteClick,
+    onStatusChange,
 }: TodoItemProps) {
     const [editMode, setEditMode] = useState(false);
     const [descriptionInputValue, setDescriptionValue] = useState(description);
@@ -17,6 +18,10 @@ function TodoItem({
     const [buttonEnabled, setButtonEnabled] = useState(false);
 
     const editClickHandler = () => {
+        if (isComplete) {
+            return;
+        }
+
         if (editMode && inputRef?.current?.value) {
             onEditClick(id, inputRef?.current?.value);
         }
@@ -49,13 +54,14 @@ function TodoItem({
             <span 
                 style={{'color': isComplete ? 'red' : 'green'}} 
                 className={'todo-item-complete cursor-pointer'}
-                onClick={() => {console.log('Clicked')}}
+                onClick={() => onStatusChange(id, isComplete)}
                 >
-                    {!isComplete ? 'Complete' : 'To do'}
+                    {isComplete ? 'Complete' : 'To do'}
             </span>
             <span
+                title={isComplete ? 'Complete task is readonly' : ''}
                 style={{'color': editMode ? 'orange' : 'green'}} 
-                className='cursor-pointer'
+                className={`${isComplete ? ' edit-disable' : 'cursor-pointer'}`}
                 onClick={() => editClickHandler()}
             >
                 {
