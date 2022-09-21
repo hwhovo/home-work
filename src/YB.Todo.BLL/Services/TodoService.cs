@@ -48,6 +48,11 @@ namespace YB.Todo.BLL.Services
             var entity = await _todoRepository.FirstOrDefaultAsync(x => x.Id == todoModel.Id) 
                 ?? throw new LogicException(ErrorCode.TODO_NOT_FOUND, _logger);
 
+            if (string.IsNullOrEmpty(todoModel.Description) && !todoModel.IsComplete.HasValue)
+            {
+                throw new LogicException(ErrorCode.EDITABLE_DATA_IS_EMPTY);
+            }
+
             if (!string.IsNullOrEmpty(todoModel.Description))
             {
                 if (todoModel.IsComplete != null)
@@ -63,7 +68,7 @@ namespace YB.Todo.BLL.Services
                 entity.Description = todoModel.Description;
             }
 
-            if (todoModel.IsComplete != null)
+            if (todoModel.IsComplete.HasValue)
             {
                 entity.IsComplete = todoModel.IsComplete.Value;
             }

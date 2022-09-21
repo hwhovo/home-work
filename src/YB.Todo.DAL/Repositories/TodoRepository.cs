@@ -23,7 +23,7 @@ namespace YB.Todo.DAL.Repositories
             return _dbContext.Set<TodoEntity>().FirstOrDefaultAsync(predicate);
         }
 
-        public async Task<IList<TodoEntity>> FilterAsync(Expression<Func<TodoEntity, bool>> predicate, int skip = 0, int? take = null, bool asNoTracking = false)
+        public async Task<IList<TodoEntity>> FilterAsync(Expression<Func<TodoEntity, bool>> predicate, int skip = 0, int? take = null)
         {
             var dbSet = _dbContext.Set<TodoEntity>();
 

@@ -14,8 +14,7 @@ namespace YB.Todo.Core.Interfaces.Repositores
         Task SaveChangesAsync();
         void Remove(TodoEntity todo);
         void Update(TodoEntity todo);
-        Task<IEnumerable<TodoEntity>> GetAllAsync();
-        Task<IList<TodoEntity>> FilterAsync(Expression<Func<TodoEntity, bool>> predicate, int skip = 0, int? take = null, bool asNoTracking = false);
+        Task<IList<TodoEntity>> FilterAsync(Expression<Func<TodoEntity, bool>> predicate, int skip = 0, int? take = null);
         Task<TodoEntity?> FirstOrDefaultAsync(Expression<Func<TodoEntity, bool>> predicate);
     }
 }
