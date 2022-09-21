@@ -1,0 +1,43 @@
+.todo-item-wrapper {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    border-bottom: 1px solid #282c34;
+}
+
+.todo-item-wrapper > span:last-child {
+    border-right: 1px solid #282c34;
+}
+
+.todo-item-wrapper > span:first-child {
+    border-left: 1px solid #282c34;
+}
+
+.todo-item-wrapper > span {
+    padding: 5px;
+    min-width: 50px;
+}
+
+.todo-item-description {
+    flex-grow: 1;
+    max-width: 35%;
+    white-space: unset;
+    align-self: flex-start;
+}
+
+.todo-item-complete {
+    flex-basis: 9%;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.todo-item-description-input {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    outline: 0;
+    width: 100%;
+    text-align: center;
+}
