@@ -1,0 +1,14 @@
+.add-button {
+    background-color: #282c34;
+    color: #fff;
+    border: 0;
+    height: 100%;
+    font-size: 13px;
+    padding: 4px;
+    min-width: 100px;
+    margin-left: 5px;
+}
+
+.add-input {
+    font-size: 15px;
+}
