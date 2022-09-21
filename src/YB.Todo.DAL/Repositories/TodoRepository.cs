@@ -20,8 +20,7 @@ namespace YB.Todo.DAL.Repositories
 
         public Task<TodoEntity?> FirstOrDefaultAsync(Expression<Func<TodoEntity, bool>> predicate)
         {
-            _dbContext.Set<TodoEntity>().FirstOrDefaultAsync(predicate);
-            throw new NotImplementedException();
+            return _dbContext.Set<TodoEntity>().FirstOrDefaultAsync(predicate);
         }
 
         public async Task<IList<TodoEntity>> FilterAsync(Expression<Func<TodoEntity, bool>> predicate, int skip = 0, int? take = null, bool asNoTracking = false)

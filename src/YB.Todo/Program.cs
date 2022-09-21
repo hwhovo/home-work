@@ -15,7 +15,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddDbContextPool<ApplicationDbContext>(
         options =>
-            options.UseSqlServer(builder.Configuration.GetConnectionString("TodoDbConnection"), m => m.MigrationsAssembly(nameof(YB.Todo.DAL))));
+            options.UseSqlServer(builder.Configuration.GetConnectionString("TodoDbConnection"), m => m.MigrationsAssembly("YB.Todo.DAL")));
 
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
 {

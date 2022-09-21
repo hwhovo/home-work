@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Net;
-using YB.Todo.Core.Exceptions;
-using YB.Todo.Core.Interfaces;
 using YB.Todo.Core.Interfaces.Services;
 using YB.Todo.Core.Models;
 
@@ -76,9 +74,9 @@ public class TodoController : ControllerBase
     [ProducesResponseType((int)HttpStatusCode.NoContent)]
     [ProducesResponseType(typeof(ApiResponse<object>), (int)HttpStatusCode.BadRequest)]
     [ProducesResponseType(typeof(ApiResponse<object>), (int)HttpStatusCode.InternalServerError)]
-    public async Task<IActionResult> Status([FromRoute] int id, [FromQuery] bool isComplete)
+    public async Task<IActionResult> Status([FromRoute] int id, [FromBody] TodoStatusEditModel todo)
     {
-        await _todoService.EditTodoAsync(new TodoEditModel { Id = id, IsComplete = isComplete });
+        await _todoService.EditTodoAsync(new TodoEditModel { Id = id, IsComplete = todo.IsComplete });
 
         return new ApiResult<object>(HttpStatusCode.NoContent);
     }
