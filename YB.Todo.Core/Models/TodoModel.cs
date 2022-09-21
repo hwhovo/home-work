@@ -17,7 +17,6 @@ namespace YB.Todo.Core.Models
         }
 
 
-
         /// <summary>
         /// An identifier of the task
         /// </summary>
