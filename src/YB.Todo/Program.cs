@@ -36,6 +36,8 @@ builder.Services.AddTransient<ITodoRepository, TodoRepository>(x => new TodoRepo
 builder.Services.AddCors(opts => opts.AddPolicy(name: localHostOrigins, policy =>
 {
     policy.WithOrigins("localhost:3000", "http://localhost:3000");
+    policy.WithHeaders("content-type");
+    policy.WithMethods("PUT", "PATCH", "DELETE");
 }));
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

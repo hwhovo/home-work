@@ -1,4 +1,4 @@
-import { ChangeEvent, SyntheticEvent, useRef, useState } from "react";
+import { ChangeEvent, useRef, useState } from "react";
 import { AddTodoItemProps } from "./types";
 import './styles.css';
 
