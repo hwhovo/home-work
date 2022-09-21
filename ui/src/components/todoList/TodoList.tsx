@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { addTodo, deleteTodoItem, editTodoDescription, editTodoStatus, getTodoList } from "../../services/fetcherService";
 import AddTodoItem from "../addTodoItem";
 import Loader from "../loader";
+import Search from "../search";
 import TodoItem from "../todoItem";
 import TodoListHeader from "../todoListHeader";
 import { SortColumn } from "../todoListHeader/types";
@@ -14,12 +15,16 @@ function TodoList() {
     const [sortByAsc, setSortByAsc] = useState<boolean>();
     const [isLoading, setIsLoading] = useState<boolean>();
 
-    useEffect(() => {
+    const fetchTodoList = (description?: string) => {
         setIsLoading(true);
-        getTodoList().then(todoListData => {
+        getTodoList(description).then(todoListData => {
             setTodoList(todoListData);
         }).catch(console.error)
             .finally(() => { setIsLoading(false) });
+    };
+
+    useEffect(() => {
+        fetchTodoList();
     }, [])
 
     const addTask = (description: string) => {
@@ -76,11 +81,16 @@ function TodoList() {
         .finally(() => { setIsLoading(false) });
     }
 
+    const handleSearch = (description: string) => {
+        fetchTodoList(description);
+    };
+
     return (<>
         {isLoading ? <Loader /> : <></>
     }
                 <div className="todo-list-wrapper">
                     <AddTodoItem addTaskSuccess={addTask} />
+                    <Search onSearchAction={handleSearch} />
                     <TodoListHeader sortTodo={sortTodoList} />
                     <div className={"todo-list-container"}>
                         {

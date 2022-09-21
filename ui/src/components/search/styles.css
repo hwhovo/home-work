@@ -1,4 +1,4 @@
-.add-button {
+.search-button {
     background-color: #282c34;
     color: #fff;
     border: 0;
@@ -7,9 +7,14 @@
     padding: 4px;
     min-width: 100px;
     margin-left: 5px;
+    cursor: pointer;
 }
 
-.add-input {
+.search-input {
     font-size: 15px;
-    width: 500px;
+}
+
+.search-container {
+    display: flex;
+    justify-content: flex-start;
 }
